@@ -1,17 +1,13 @@
 import { diskStorage } from 'multer';
 
 const generateId = () => {
-  Array(18)
+  return Array(18)
     .fill(null)
     .map(() => Math.round(Math.random() * 16).toString(16))
     .join('');
 };
 
-const normalizeFileName = (
-  req: any,
-  file: Express.Multer.File,
-  callback: (arg0: null, arg1: string) => void,
-) => {
+const normalizeFileName = (req: any, file: Express.Multer.File, callback) => {
   const fileExtName = file.originalname.split('.').pop();
 
   callback(null, `${generateId()}.${fileExtName}`);
