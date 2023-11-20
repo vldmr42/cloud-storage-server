@@ -5,6 +5,9 @@
 # Environment
 .env
 
+# Assets
+/uploads
+
 # Logs
 logs
 *.log

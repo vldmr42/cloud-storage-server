@@ -13,4 +13,14 @@ export class FilesService {
   findAll() {
     return this.repository.find();
   }
+
+  create(file: Express.Multer.File, userId: number) {
+    return this.repository.save({
+      filename: file.filename,
+      originalName: file.originalname,
+      size: file.size,
+      mimeType: file.mimetype,
+      user: { id: userId },
+    });
+  }
 }
