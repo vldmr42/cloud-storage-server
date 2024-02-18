@@ -10,11 +10,12 @@ import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AuthModule } from './auth/auth.module';
 import * as path from 'path';
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: path.join(__dirname, '..', 'uploads'),
+      serveStaticOptions: { index: false },
+      serveRoot: '/uploads/',
     }),
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
